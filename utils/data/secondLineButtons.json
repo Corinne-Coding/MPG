@@ -1,0 +1,30 @@
+[
+  {
+    "buttonPositionName": "all",
+    "title": "Toutes les positions"
+  },
+  {
+    "buttonPositionName": "A",
+    "title": "Attaquants"
+  },
+  {
+    "buttonPositionName": "D",
+    "title": "Défenseurs"
+  },
+  {
+    "buttonPositionName": "G",
+    "title": "Gardiens"
+  },
+  {
+    "buttonPositionName": "L",
+    "title": "Latéraux"
+  },
+  {
+    "buttonPositionName": "MD",
+    "title": "Milieux défensifs"
+  },
+  {
+    "buttonPositionName": "MO",
+    "title": "Milieux offensifs"
+  }
+]

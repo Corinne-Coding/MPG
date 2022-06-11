@@ -1,0 +1,38 @@
+[
+  {
+    "buttonName": "sort-name-asc",
+    "iconName": "sort-alpha-asc",
+    "iconType": "FontAwesome",
+    "title": "Joueurs"
+  },
+  {
+    "buttonName": "sort-name-desc",
+    "iconName": "sort-alpha-desc",
+    "iconType": "FontAwesome",
+    "title": "Joueurs"
+  },
+  {
+    "buttonName": "sort-num-asc",
+    "iconName": "sort-asc",
+    "iconType": "FontAwesome",
+    "title": "Note"
+  },
+  {
+    "buttonName": "sort-num-desc",
+    "iconName": "sort-desc",
+    "iconType": "FontAwesome",
+    "title": "Note"
+  },
+  {
+    "buttonName": "sort-goal-asc",
+    "iconName": "sort-asc",
+    "iconType": "FontAwesome",
+    "title": "Buts"
+  },
+  {
+    "buttonName": "sort-goal-desc",
+    "iconName": "sort-desc",
+    "iconType": "FontAwesome",
+    "title": "Buts"
+  }
+]
