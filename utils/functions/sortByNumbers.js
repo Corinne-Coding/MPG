@@ -1,3 +1,10 @@
+/**
+ * Function to sort data by numbers in ascending order or descending order
+ * @param {object} data - Data to sort
+ * @param {array} key - List of keys - sorting is done based on this information
+ * @param {string} order - Optionnal - ascending order by default
+ * @returns
+ */
 const sortByNumbers = (data, key, order = 'sort-num-asc') => {
   if (!data || !key) return;
 

@@ -6,16 +6,16 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 const PlayersStack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
-// Colors
-import colors from './utils/colors';
-
 // Components
 import VectorIcons from './components/VectorIcon';
 
 // Screens
 import ClubsScreen from './screens/ClubsScreen';
 import PlayersScreen from './screens/PlayersScreen';
-import DetailsScreen from './screens/DetailsScreen';
+import PlayerDetailsScreen from './screens/PlayerDetailsScreen';
+
+// Utils
+import colors from './utils/colors';
 
 const App = () => {
   const screenOptions = {
@@ -30,12 +30,9 @@ const App = () => {
 
   function PlayersStackScreen() {
     return (
-      <PlayersStack.Navigator
-        screenOptions={{
-          headerShown: false,
-        }}>
-        <PlayersStack.Screen name="PlayersList" component={PlayersScreen} />
-        <PlayersStack.Screen name="Details" component={DetailsScreen} />
+      <PlayersStack.Navigator screenOptions={screenOptions}>
+        <PlayersStack.Screen name="Joueurs" component={PlayersScreen} />
+        <PlayersStack.Screen name="Stats" component={PlayerDetailsScreen} />
       </PlayersStack.Navigator>
     );
   }
@@ -44,7 +41,7 @@ const App = () => {
     <NavigationContainer>
       <Tab.Navigator screenOptions={screenOptions}>
         <Tab.Screen
-          name="Joueurs"
+          name="Players"
           component={PlayersStackScreen}
           options={{
             tabBarIcon: ({color}) => (
@@ -55,6 +52,7 @@ const App = () => {
                 type="Ionicons"
               />
             ),
+            headerShown: false,
           }}
         />
         <Tab.Screen

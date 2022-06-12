@@ -1,3 +1,10 @@
+/**
+ * Function to sort data by names in ascending order or descending order
+ * @param {object} data - Data to sort
+ * @param {array} key - List of keys - sorting is done based on this information
+ * @param {string} order - Optionnal - ascending order by default
+ * @returns {tab}
+ */
 const sortByNames = (data, key, order = 'sort-name-asc') => {
   if (
     (order !== 'sort-name-asc' && order !== 'sort-name-desc') ||

@@ -1,11 +1,11 @@
 import React from 'react';
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 
-// Colors
-import colors from '../utils/colors';
+// Components
+import VectorIcon from '../components/VectorIcon';
 
-// Icon
-import RefreshIcon from 'react-native-vector-icons/FontAwesome';
+// Utils
+import colors from '../utils/colors';
 
 const Error = ({reloadScreen}) => {
   return (
@@ -21,7 +21,12 @@ const Error = ({reloadScreen}) => {
       </View>
 
       <TouchableOpacity style={styles.button} onPress={reloadScreen}>
-        <RefreshIcon name="refresh" size={30} color={colors.greyMPG} />
+        <VectorIcon
+          color={colors.greyMPG}
+          name="refresh"
+          size={30}
+          type="FontAwesome"
+        />
       </TouchableOpacity>
     </View>
   );

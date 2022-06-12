@@ -1,41 +1,52 @@
-import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import React, {useMemo} from 'react';
+import {StyleSheet, Text, TouchableHighlight, View} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 
-// Colors
+// Utils
 import colors from '../utils/colors';
-
-// Functions
 import getPositionCode from '../utils/functions/getPositionCode';
 import getRoundNumber from '../utils/functions/getRoundNumber';
 
 const PlayerLine = ({item}) => {
-  return (
-    <View style={styles.container}>
-      <View style={styles.nameView}>
-        <Text style={styles.name} numberOfLines={1}>
-          {item.lastName} {item.firstName}
-        </Text>
-      </View>
+  const navigation = useNavigation();
 
-      <View style={styles.detailsView}>
-        <Text style={styles.text}>
-          {getRoundNumber(item.stats.averageRating)}
-        </Text>
-      </View>
+  const playerLineComponent = useMemo(() => {
+    return (
+      <TouchableHighlight
+        style={styles.container}
+        onPress={() => navigation.navigate('Stats', {item: item})}>
+        <>
+          <View style={styles.nameView}>
+            <Text style={styles.name} numberOfLines={1}>
+              {item.lastName} {item.firstName}
+            </Text>
+          </View>
 
-      <View style={styles.detailsView}>
-        <Text style={styles.text}>
-          {item.stats.totalGoals === 0 || item.stats.totalGoals
-            ? item.stats.totalGoals
-            : '--'}
-        </Text>
-      </View>
+          <View style={styles.detailsView}>
+            <Text style={styles.text}>
+              {getRoundNumber(item.stats?.averageRating)}
+            </Text>
+          </View>
 
-      <View style={styles.detailsView}>
-        <Text style={styles.text}>{getPositionCode(item.ultraPosition)}</Text>
-      </View>
-    </View>
-  );
+          <View style={styles.detailsView}>
+            <Text style={styles.text}>
+              {item.stats?.totalGoals === 0 || item.stats?.totalGoals
+                ? item.stats.totalGoals
+                : '--'}
+            </Text>
+          </View>
+
+          <View style={styles.detailsView}>
+            <Text style={styles.text}>
+              {getPositionCode(item.ultraPosition)}
+            </Text>
+          </View>
+        </>
+      </TouchableHighlight>
+    );
+  }, [item]);
+
+  return playerLineComponent;
 };
 
 export default PlayerLine;

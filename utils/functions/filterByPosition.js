@@ -1,5 +1,22 @@
-const sortByPosition = (data, key, order = 'A') => {
-  if (!data || !key) return;
+/**
+ * Function to filter data by ultraPosition
+ * @param {object} data - Data to sort
+ * @param {array} key - List of keys - filtering is done based on this information
+ * @param {string} order - ultraPosition letter
+ * @returns
+ */
+const filterByPosition = (data, key, order) => {
+  if (
+    !data ||
+    !key ||
+    (order !== 'A' &&
+      order !== 'G' &&
+      order !== 'D' &&
+      order !== 'L' &&
+      order !== 'MD' &&
+      order !== 'MO')
+  )
+    return;
 
   const ultraPositionCode = [
     {
@@ -41,4 +58,4 @@ const sortByPosition = (data, key, order = 'A') => {
   return tab;
 };
 
-export default sortByPosition;
+export default filterByPosition;

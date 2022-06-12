@@ -1,10 +1,10 @@
 import React from 'react';
 import {StyleSheet, TextInput} from 'react-native';
 
-// Function
+// Utils
 import sortByNames from '../utils/functions/sortByNames';
 import sortByNumbers from '../utils/functions/sortByNumbers';
-import sortByPosition from '../utils/functions/sortByPosition';
+import filterByPosition from '../utils/functions/filterByPosition';
 
 const SearchInput = ({
   activeButtonName,
@@ -50,7 +50,11 @@ const SearchInput = ({
       }
 
       if (activePositionButtonName && activePositionButtonName !== 'all') {
-        tab = sortByPosition(tab, ['ultraPosition'], activePositionButtonName);
+        tab = filterByPosition(
+          tab,
+          ['ultraPosition'],
+          activePositionButtonName,
+        );
       }
 
       setDataFunction(tab);
@@ -78,5 +82,6 @@ const styles = StyleSheet.create({
     width: '80%',
     marginRight: 20,
     marginLeft: 10,
+    padding: 5,
   },
 });

@@ -1,26 +1,30 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import {Image, StyleSheet, Text, View} from 'react-native';
 
-// Colors
+// Utils
 import colors from '../utils/colors';
 
 const ClubCard = ({item}) => {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.title}>
-        {item.name['en-GB']} - {item.shortName}
-      </Text>
+  const clubCardComponent = useMemo(() => {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.title}>
+          {item.name['en-GB']} - {item.shortName}
+        </Text>
 
-      <Image
-        source={
-          item.defaultJerseyUrl
-            ? {uri: item.defaultJerseyUrl}
-            : require('../utils/images/image-not-available.jpeg')
-        }
-        style={styles.image}
-      />
-    </View>
-  );
+        <Image
+          source={
+            item.defaultJerseyUrl
+              ? {uri: item.defaultJerseyUrl}
+              : require('../utils/images/image-not-available.jpeg')
+          }
+          style={styles.image}
+        />
+      </View>
+    );
+  }, [item]);
+
+  return clubCardComponent;
 };
 
 export default ClubCard;

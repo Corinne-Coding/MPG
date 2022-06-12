@@ -1,3 +1,8 @@
+/**
+ * Function to convert the ultraPosition code into letter
+ * @param {*} ultraPosition - Number
+ * @returns {string}
+ */
 const getPositionCode = ultraPosition => {
   if (ultraPosition === 10) return 'G';
   if (ultraPosition === 20) return 'D';

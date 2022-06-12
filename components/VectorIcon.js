@@ -2,9 +2,9 @@ import React from 'react';
 
 // Icons from https://oblador.github.io/react-native-vector-icons/
 import EntypoIcon from 'react-native-vector-icons/Entypo';
-import IoniconsIcon from 'react-native-vector-icons/Ionicons';
 import FeatherIcon from 'react-native-vector-icons/Feather';
 import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
+import IoniconsIcon from 'react-native-vector-icons/Ionicons';
 
 const VectorIcon = ({color, name, size, type}) => {
   return type === 'Entypo' ? (

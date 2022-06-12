@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 
-// Colors
+// Utils
 import colors from '../utils/colors';
 
 const ColumnTitle = ({title, width}) => {

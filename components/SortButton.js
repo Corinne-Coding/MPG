@@ -1,22 +1,15 @@
 import React from 'react';
 import {StyleSheet, Text, TouchableOpacity} from 'react-native';
 
-// Colors
-import colors from '../utils/colors';
-
 // Components
 import VectorIcons from '../components/VectorIcon';
 
-// Function
+// Utils
 import sortByNames from '../utils/functions/sortByNames';
 import sortByNumbers from '../utils/functions/sortByNumbers';
-import sortByPosition from '../utils/functions/sortByPosition';
+import filterByPosition from '../utils/functions/filterByPosition';
+import colors from '../utils/colors';
 
-/**
- *
- * @param {*} param0
- * @returns
- */
 const SortButton = ({
   activeButtonName,
   activePositionButtonName,
@@ -69,7 +62,7 @@ const SortButton = ({
         activePositionButtonName === 'MO') &&
       buttonPositionName !== 'all'
     ) {
-      newData = sortByPosition(
+      newData = filterByPosition(
         newData ? newData : data,
         ['ultraPosition'],
         buttonPositionName ? buttonPositionName : activePositionButtonName,

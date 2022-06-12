@@ -2,9 +2,6 @@ import React, {useEffect, useState} from 'react';
 import {FlatList, ScrollView, StyleSheet, View} from 'react-native';
 import axios from 'axios';
 
-// Colors
-import colors from '../utils/colors';
-
 // Components
 import ColumnTitle from '../components/ColumnTitle';
 import Error from '../components/Error';
@@ -18,7 +15,8 @@ import VectorIcons from '../components/VectorIcon';
 import firstLineButtonsData from '../utils/data/firstLineButtons.json';
 import secondLineButtonsData from '../utils/data/secondLineButtons.json';
 
-// Function
+// Utils
+import colors from '../utils/colors';
 import sortByNames from '../utils/functions/sortByNames';
 
 const PlayersScreen = () => {
@@ -31,15 +29,23 @@ const PlayersScreen = () => {
     useState('all');
 
   const fetchData = async () => {
-    const response = await axios.get(
-      'https://api.mpg.football/api/data/championship-players-pool/1',
-    );
-    if (response.data) {
-      setPlayersData(
-        sortByNames(response.data.poolPlayers, ['lastName'], activeButtonName),
+    try {
+      const response = await axios.get(
+        'https://api.mpg.football/api/data/championship-players-pool/1',
       );
+      if (response.data) {
+        setPlayersData(
+          sortByNames(
+            response.data.poolPlayers,
+            ['lastName'],
+            activeButtonName,
+          ),
+        );
+      }
+      setIsLoading(false);
+    } catch (e) {
+      setIsLoading(false);
     }
-    setIsLoading(false);
   };
 
   useEffect(() => {
