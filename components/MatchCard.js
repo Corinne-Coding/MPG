@@ -5,9 +5,6 @@ import {StyleSheet, Text, View} from 'react-native';
 import colors from '../utils/colors';
 
 const MatchCard = ({clubId, clubsData, match}) => {
-  console.log(clubId);
-  console.log(match.away.clubId);
-  console.log(match.home.clubId);
   return clubsData[match.away.clubId].name['fr-FR'] &&
     clubsData[match.home.clubId].name['fr-FR'] ? (
     <View style={styles.container}>
